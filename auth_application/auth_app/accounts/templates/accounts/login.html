@@ -3,28 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Login Page</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
 
-    <h1> Login Page</h1>
+<div class="login-container">
+
+    <h1>Login</h1>
+
     {% if error %}
-        <p>{{ error }}</p>
+        <div class="error">
+            {{ error }}
+        </div>
     {% endif %}
 
     <form method="POST">
+
         {% csrf_token %}
-        <label> Username: </label>
-        <input type="text" name="username" required>
 
-        <br><br>
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" name="username" required>
+        </div>
 
-        <label> Password:- </label>
-        <input type="text" name="password" required>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" required>
+        </div>
 
-        <br><br>
+        <button type="submit" class="login-btn">
+            Login
+        </button>
 
-        <button type="submit"> Login </button>
     </form>
+
+</div>
 
 </body>
 </html>
