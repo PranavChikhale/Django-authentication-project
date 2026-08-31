@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -36,6 +37,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'accounts.middleware.responsetime.RequestLoggingMiddleware',
+    'accounts.middleware.request_logger.RequestLoggerMiddleware',
+    'accounts.middleware.user_activity.UserActivityMiddleware',
 ]
 
 ROOT_URLCONF = 'auth_app.urls'

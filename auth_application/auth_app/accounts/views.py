@@ -1,7 +1,33 @@
+from django.http import JsonResponse
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate,login,logout
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from django.contrib.auth.models import User
+from .serializers.serializers import UserSerializer, RegisterSerializer
 
+
+@api_view(['GET'])
+def user_list(request):
+    users = User.objects.all()
+    serializer = UserSerializer(users, many=True)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def register(request):
+    serializer = RegisterSerializer(data=request.data)
+
+    if serializer.is_valid():
+        serializer.save()
+        return Response(
+            {
+            "message": 'User created successfully',
+            "user" : serializer.data
+            },
+            status=201
+        )
+    return Response(serializer.errors,status=400)
 
 def LOGIN_PAGE(request):
     if request.method == 'POST':
