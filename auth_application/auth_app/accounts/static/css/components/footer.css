@@ -1,0 +1,45 @@
+/* ================================
+   FOOTER
+================================ */
+
+.site-footer {
+    background: #0F172A;
+
+    color: #FFFFFF;
+
+    padding: 25px 20px;
+
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+.footer-title {
+    font-size: 18px;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+}
+
+.footer-text {
+    color: #94A3B8;
+
+    font-size: 14px;
+
+    margin: 0;
+}
+
+.footer-link {
+    color: #38BDF8;
+
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}

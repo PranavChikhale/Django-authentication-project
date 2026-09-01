@@ -1,0 +1,332 @@
+/* ================================
+   DASHBOARD PAGE
+================================ */
+
+.dashboard-container {
+    min-height: calc(100vh - 150px);
+    background: #F8FAFC;
+    padding: 50px 20px;
+}
+
+
+/* ================================
+   WELCOME SECTION
+================================ */
+
+.welcome-section {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    background: #0F172A;
+    color: #FFFFFF;
+
+    padding: 45px;
+
+    border-radius: 16px;
+
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.12);
+}
+
+.small-title {
+    color: #38BDF8;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+.welcome-section h1 {
+    color: #FFFFFF;
+
+    font-size: 36px;
+
+    margin-bottom: 12px;
+}
+
+.description {
+    color: #CBD5E1;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    max-width: 650px;
+
+    margin-bottom: 25px;
+}
+
+
+/* Profile Button */
+
+.profile-btn {
+    display: inline-block;
+
+    background: #2563EB;
+
+    color: #FFFFFF;
+
+    text-decoration: none;
+
+    padding: 12px 22px;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.profile-btn:hover {
+    background: #1D4ED8;
+}
+
+
+/* ================================
+   DASHBOARD CARDS
+================================ */
+
+.cards {
+    max-width: 1100px;
+
+    margin: 30px auto 0;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+.card {
+    background: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+
+    border-radius: 14px;
+
+    padding: 28px;
+
+    transition: 0.2s;
+
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+
+    border-color: #BFDBFE;
+
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+
+/* Card Icon */
+
+.card-icon {
+    width: 55px;
+
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #EFF6FF;
+
+    border-radius: 12px;
+
+    font-size: 26px;
+
+    margin-bottom: 18px;
+}
+
+
+/* Card Heading */
+
+.card h2 {
+    color: #1E293B;
+
+    font-size: 20px;
+
+    margin-bottom: 10px;
+}
+
+
+/* Card Paragraph */
+
+.card p {
+    color: #64748B;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+
+    margin-bottom: 18px;
+}
+
+
+/* Card Link */
+
+.card a {
+    color: #2563EB;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+.card a:hover {
+    color: #1D4ED8;
+
+    text-decoration: underline;
+}
+
+
+/* Secure Status */
+
+.secure {
+    display: inline-block;
+
+    color: #16A34A;
+
+    background: #F0FDF4;
+
+    border: 1px solid #BBF7D0;
+
+    padding: 8px 12px;
+
+    border-radius: 6px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* ================================
+   ACCOUNT SUMMARY
+================================ */
+
+.account-summary {
+    max-width: 1100px;
+
+    margin: 30px auto 0;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+
+    border-radius: 14px;
+
+    padding: 30px;
+
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
+}
+
+.account-summary h2 {
+    color: #0F172A;
+
+    font-size: 21px;
+
+    margin-bottom: 22px;
+}
+
+
+/* Summary Grid */
+
+.summary-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+
+/* Summary Item */
+
+.summary-item {
+    background: #F8FAFC;
+
+    border: 1px solid #E2E8F0;
+
+    border-radius: 10px;
+
+    padding: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.summary-label {
+    color: #64748B;
+
+    font-size: 13px;
+}
+
+.summary-item strong {
+    color: #1E293B;
+
+    font-size: 15px;
+
+    word-break: break-word;
+}
+
+.summary-item .status {
+    color: #16A34A;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 900px) {
+
+    .cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .dashboard-container {
+        padding: 30px 15px;
+    }
+
+    .welcome-section {
+        padding: 30px 25px;
+    }
+
+    .welcome-section h1 {
+        font-size: 28px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

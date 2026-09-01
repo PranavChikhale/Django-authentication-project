@@ -1,20 +1,124 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Dashboard</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
 
-    <h1> WelCome To DashBoard </h1>
-    <p> Hello, {{user.username}}!!</p>
-    <a href="{% url 'profile' %}">Profile</a>
+{% block title %}Dashboard | Auth Application{% endblock %}
 
-    <br>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
 
-    <a href="{% url 'about' %}">About</a>
-    <br>
-    <a href="{% url 'logout' %}">Logout</a>
+{% block content %}
 
-</body>
-</html>
+<main class="dashboard-container">
+    <section class="welcome-section">
+        <p class="small-title">
+            WELCOME BACK 👋
+        </p>
+
+        <h1>
+            Hello, {{ request.user.username }}!
+        </h1>
+
+        <p class="description">
+            Welcome to your dashboard. Manage your account
+            and explore the application from here.
+        </p>
+        <a href="{% url 'profile' %}" class="profile-btn">
+            View Profile
+        </a>
+    </section>
+    <section class="cards">
+        <div class="card">
+            <div class="card-icon">
+                👤
+            </div>
+            <h2>
+                My Profile
+            </h2>
+            <p>
+                View your username, email and account
+                information.
+            </p>
+            <a href="{% url 'profile' %}">
+                View Profile →
+            </a>
+        </div>
+        <div class="card">
+            <div class="card-icon">
+                ℹ️
+            </div>
+            <h2>
+                About
+            </h2>
+            <p>
+                Learn more about this authentication
+                application.
+            </p>
+            <a href="{% url 'about' %}">
+                Learn More →
+            </a>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">
+                🔐
+            </div>
+            <h2>
+                Account Security
+            </h2>
+            <p>
+                Your account is protected using Django's
+                authentication system.
+            </p>
+            <span class="secure">
+                ✓ Secure Account
+            </span>
+        </div>
+    </section>
+
+    <section class="account-summary">
+        <h2>
+            Account Summary
+        </h2>
+        <div class="summary-grid">
+            <div class="summary-item">
+                <span class="summary-label">
+                    Username
+                </span>
+                <strong>
+                    {{ request.user.username }}
+                </strong>
+            </div>
+
+            <div class="summary-item">
+                <span class="summary-label">
+                    Email
+                </span>
+
+                <strong>
+                    {{ request.user.email|default:"Not provided" }}
+                </strong>
+            </div>
+
+            <div class="summary-item">
+                <span class="summary-label">
+                    Member Since
+                </span>
+                <strong>
+                    {{ request.user.date_joined|date:"d M Y" }}
+                </strong>
+            </div>
+
+            <div class="summary-item">
+                <span class="summary-label">
+                    Status
+                </span>
+                <strong class="status">
+                    ✓ Active
+                </strong>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

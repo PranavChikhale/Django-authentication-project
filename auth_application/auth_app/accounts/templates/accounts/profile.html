@@ -1,19 +1,133 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Profile</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}My Profile | Auth Application{% endblock %}
 
-    <h1> Profile </h1>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
 
-    <p>  UserName:-- {{ user.username }}</p>
-    <a href="{% url 'dashboard' %}">Dashboard</a>
+{% block content %}
 
-    <br>
-
-    <a href="{% url 'logout' %}">Logout</a>
-
-</body>
-</html>
+<div class="profile-container">
+    <div class="profile-card">
+        <div class="profile-header">
+            <div class="profile-avatar">
+                {{ request.user.username|first|upper }}
+            </div>
+            <h1>
+                {% if request.user.first_name or request.user.last_name %}
+                    {{ request.user.first_name }}
+                    {{ request.user.last_name }}
+                {% else %}
+                    {{ request.user.username }}
+                {% endif %}
+            </h1>
+            <p>
+                @{{ request.user.username }}
+            </p>
+        </div>
+        <!-- Profile Content -->
+        <div class="profile-content">
+            <h2>
+                Personal Information
+            </h2>
+            <div class="info-grid">
+                <div class="info-box">
+                    <span class="info-icon">
+                        🆔
+                    </span>
+                    <div>
+                        <span class="label">
+                            Username
+                        </span>
+                        <span class="value">
+                            {{ request.user.username }}
+                        </span>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <span class="info-icon">
+                        📧
+                    </span>
+                    <div>
+                        <span class="label">
+                            Email Address
+                        </span>
+                        <span class="value">
+                            {{ request.user.email|default:"Not provided" }}
+                        </span>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <span class="info-icon">
+                        🟢
+                    </span>
+                    <div>
+                        <span class="label">
+                            Account Status
+                        </span>
+                        <span class="value active-status">
+                            Active
+                        </span>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <span class="info-icon">
+                        🔐
+                    </span>
+                    <div>
+                        <span class="label">
+                            Account Type
+                        </span>
+                        <span class="value">
+                            {% if request.user.is_staff %}
+                                Staff
+                            {% else %}
+                                Regular User
+                            {% endif %}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <h2 class="account-title">
+                Account Details
+            </h2>
+            <div class="account-details">
+                <div class="detail-row">
+                    <span>
+                        Member Since
+                    </span>
+                    <strong>
+                        {{ request.user.date_joined|date:"d M Y" }}
+                    </strong>
+                </div>
+                <div class="detail-row">
+                    <span>
+                        Last Login
+                    </span>
+                    <strong>
+                        {% if request.user.last_login %}
+                            {{ request.user.last_login|date:"d M Y, h:i A" }}
+                        {% else %}
+                            First Login
+                        {% endif %}
+                    </strong>
+                </div>
+                <div class="detail-row">
+                    <span>
+                        User ID
+                    </span>
+                    <strong>
+                        #{{ request.user.id }}
+                    </strong>
+                </div>
+            </div>
+            <div class="profile-actions">
+                <a href="{% url 'dashboard' %}" class="back-btn">
+                    ← Back to Dashboard
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

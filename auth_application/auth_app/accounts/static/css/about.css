@@ -1,0 +1,201 @@
+/* ================================
+   ABOUT
+================================ */
+
+.about-container {
+    min-height: calc(100vh - 150px);
+
+    background: #F8FAFC;
+
+    padding: 50px 20px;
+}
+
+
+/* Hero */
+
+.about-hero {
+    max-width: 900px;
+
+    margin: 0 auto 35px;
+
+    padding: 50px 30px;
+
+    background: #0F172A;
+
+    color: #FFFFFF;
+
+    text-align: center;
+
+    border-radius: 16px;
+}
+
+.hero-icon {
+    font-size: 45px;
+
+    margin-bottom: 15px;
+}
+
+.about-hero h1 {
+    font-size: 34px;
+
+    margin-bottom: 12px;
+}
+
+.about-hero p {
+    color: #CBD5E1;
+
+    font-size: 16px;
+}
+
+
+/* Cards */
+
+.about-grid {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.about-card {
+    background: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+
+    border-radius: 14px;
+
+    padding: 30px;
+
+    transition: 0.2s;
+}
+
+.about-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #BFDBFE;
+
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.07);
+}
+
+.card-icon {
+    font-size: 30px;
+
+    margin-bottom: 15px;
+}
+
+.about-card h2 {
+    color: #1E293B;
+
+    font-size: 20px;
+
+    margin-bottom: 12px;
+}
+
+.about-card p {
+    color: #64748B;
+
+    line-height: 1.7;
+}
+
+
+/* Features */
+
+.features {
+    max-width: 900px;
+
+    margin: 45px auto 0;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+
+    border-radius: 14px;
+
+    padding: 35px;
+}
+
+.features h2 {
+    color: #0F172A;
+
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+.feature-list {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.feature {
+    padding: 13px 15px;
+
+    background: #F8FAFC;
+
+    border-radius: 8px;
+
+    color: #1E293B;
+}
+
+.feature span {
+    color: #16A34A;
+
+    font-weight: bold;
+
+    margin-right: 8px;
+}
+
+
+/* Back */
+
+.back-section {
+    text-align: center;
+
+    margin-top: 35px;
+}
+
+.back-btn {
+    display: inline-block;
+
+    padding: 11px 20px;
+
+    background: #2563EB;
+
+    color: #FFFFFF;
+
+    text-decoration: none;
+
+    border-radius: 7px;
+
+    font-weight: 600;
+}
+
+.back-btn:hover {
+    background: #1D4ED8;
+}
+
+
+/* Responsive */
+
+@media (max-width: 800px) {
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-list {
+        grid-template-columns: 1fr;
+    }
+
+    .about-hero h1 {
+        font-size: 27px;
+    }
+}

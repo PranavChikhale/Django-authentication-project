@@ -1,19 +1,105 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>About</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About | Auth Application{% endblock %}
 
-    <h1>About</h1>
-    <p> This is our Basic Django Authentication Application...!</p>
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
 
-    <a href="{% url 'dashboard' %}">Dashboard</a>
+{% block content %}
 
-    <br>
+<div class="about-container">
+    <section class="about-hero">
+        <div class="hero-icon">
+            🔐
+        </div>
+        <h1>
+            About Auth Application
+        </h1>
+        <p>
+            A simple and secure user authentication
+            application built with Django.
+        </p>
+    </section>
+    <section class="about-grid">
+        <div class="about-card">
+            <div class="card-icon">
+                🚀
+            </div>
+            <h2>
+                Our Purpose
+            </h2>
+            <p>
+                This application demonstrates how user
+                authentication and authorization can be
+                implemented using Django.
+            </p>
+        </div>
+        <div class="about-card">
+            <div class="card-icon">
+                🛡️
+            </div>
+            <h2>
+                Security
+            </h2>
+            <p>
+                User passwords are securely handled using
+                Django's built-in authentication system.
+            </p>
+        </div>
+        <div class="about-card">
+            <div class="card-icon">
+                ⚙️
+            </div>
+            <h2>
+                Technology
+            </h2>
+            <p>
+                The application uses Python, Django,
+                Django REST Framework, HTML and CSS.
+            </p>
+        </div>
+    </section>
+    <section class="features">
+        <h2>
+            Application Features
+        </h2>
+        <div class="feature-list">
+            <div class="feature">
+                <span>✓</span>
+                User Registration
+            </div>
+            <div class="feature">
+                <span>✓</span>
+                Secure Login
+            </div>
+            <div class="feature">
+                <span>✓</span>
+                Protected Dashboard
+            </div>
+            <div class="feature">
+                <span>✓</span>
+                User Profile
+            </div>
+            <div class="feature">
+                <span>✓</span>
+                Logout
+            </div>
+            <div class="feature">
+                <span>✓</span>
+                REST APIs
+            </div>
+            <div class="feature">
+                <span>✓</span>
+                Custom Middleware
+            </div>
+        </div>
 
-    <a href="{% url 'logout' %}">Logout</a>
-
-    </body>
-</html>
+    </section>
+    <div class="back-section">
+        <a href="{% url 'dashboard' %}" class="back-btn">
+            ← Back to Dashboard
+        </a>
+    </div>
+</div>
+{% endblock %}
